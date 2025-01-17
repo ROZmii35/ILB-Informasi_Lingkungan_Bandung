@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bandung Hijau & Lestari</title>
+    <title>Informasi Lingkungan Bandung</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -12,7 +12,7 @@
     <!-- Navbar -->
     <header class="bg-green-600 shadow-lg">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <h1 class="text-2xl font-bold text-white">Bandung Hijau & Lestari</h1>
+            <h1 class="text-2xl font-bold text-white">Informasi Lingkungan Bandung</h1>
             <nav>
                 <ul class="flex space-x-6">
                     @auth
@@ -34,7 +34,7 @@
     <div class="container mx-auto px-4">
         <!-- Hero Section -->
         <section class="text-center py-12 md:py-20">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4 text-green-800">Selamat Datang di Bandung Hijau</h1>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 text-green-800">Selamat Datang di Informasi Lingkungan Bandung</h1>
             <p class="text-xl text-green-700 mb-8">Bersama Mewujudkan Kota yang Bersih, Hijau, dan Berkelanjutan!</p>
             <div class="relative">
                 <img src="https://dolandolen.com/wp-content/uploads/2019/08/20-Spot-Instagram-Terbaik-Bandung.jpg" 
