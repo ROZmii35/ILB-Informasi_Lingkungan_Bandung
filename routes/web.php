@@ -40,7 +40,7 @@ Route::middleware('auth')->group(function () {
         return view('garbage-reporting');
     })->name('garbage-reporting');
     
-    Route::post('/reports', [ReportController::class, 'store'])->name('reports.store');
+    Route::post('/reports', [App\Http\Controllers\ReportController::class, 'store'])->name('reports.store');
 });
 
 // Admin Routes

@@ -17,6 +17,25 @@ class ReportController extends Controller
         return view('admin.reports.index', compact('reports'));
     }
 
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'lokasi' => 'required|string|max:255',
+            'deskripsi' => 'required|string',
+            'gambar' => 'nullable|image|max:2048'
+        ]);
+
+        if ($request->hasFile('gambar')) {
+            $path = $request->file('gambar')->store('reports', 'public');
+            $validated['gambar'] = $path;
+        }
+
+        $validated['user_id'] = auth()->id();
+        Report::create($validated);
+
+        return redirect()->back()->with('success', 'Laporan berhasil dikirim!');
+    }
+
     public function edit(Report $report)
     {
         return view('admin.reports.edit', compact('report'));

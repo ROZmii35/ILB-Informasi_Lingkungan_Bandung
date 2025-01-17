@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Report;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
@@ -45,5 +46,37 @@ class AdminController extends Controller
             'chartData' => $chartValues,
             'topLocations' => $topLocations
         ]);
+    }
+
+    // Tambahkan method profile
+    public function profile()
+    {
+        return view('admin.profile', [
+            'user' => auth()->user()
+        ]);
+    }
+
+    // Tambahkan method untuk update profile
+    public function updateProfile(Request $request)
+    {
+        $user = auth()->user();
+        
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
+            'password' => 'nullable|string|min:8|confirmed',
+        ]);
+
+        if (!empty($validated['password'])) {
+            $validated['password'] = bcrypt($validated['password']);
+        } else {
+            unset($validated['password']);
+        }
+
+        $user->update($validated);
+
+        return redirect()
+            ->route('admin.profile')
+            ->with('success', 'Profil berhasil diperbarui!');
     }
 } 
